@@ -1,0 +1,17 @@
+{% load static %}
+<head><link rel="stylesheet" href="{% static 'css/home.css' %}"></head>
+
+<div class="nav_new">
+    <div class="nav_item">
+        <h2><a href="{% url 'home' %}">Voltar para Home</a></h2>
+    </div>
+</div>
+
+<div>
+<h2>Cadastrar Conta</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Cadastrar</button>
+</form>
+</div>

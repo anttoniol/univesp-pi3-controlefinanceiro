@@ -1,0 +1,22 @@
+{% load static %}
+<head>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-aw'>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <title>Cadastrar Usuário</title>
+</head>
+<body>
+    <div class="container"> 
+        <h2>Cadastrar Usuário</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">
+                <i class="fa fa-send"></i>
+                <input type="submit" value="Cadastrar" id="btn">
+            </button><br><br>
+        </form>
+        <div class="newuser">
+            <a href="{% url 'login' %}" class="">Voltar</a>
+        </div>
+    </div>
+</body>

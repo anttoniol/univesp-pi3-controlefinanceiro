@@ -1,0 +1,18 @@
+{% load static %}
+<head><link rel="stylesheet" href="{% static 'css/home.css' %}"></head>
+
+<div class="nav_new">
+    <div class="nav_item">
+        <h2><a href="{% url 'home' %}">Voltar para Home</a></h2>
+    </div>
+</div>
+
+<div>
+<h2>Cadastrar Nova Categoria</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}  <!-- Renderiza os campos do formulário -->
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
+</form>
+</div>

@@ -1,0 +1,108 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: 'poppins', sans-serif;
+}
+
+body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #e2e4e9;
+}
+.container {
+    background: #eff0f1;
+    border: 0.5px solid #313b4e;
+    padding: 50px 30px;
+    border-radius: 20px; /* borda arredondada*/
+    box-shadow: 1px 1px 20px #3b4456,
+                -1px -1px 20px #4f5c74;
+}
+h2{
+    position: relative;
+    font-size: 40px;
+    font-weight: 800;
+    color: #5389ee;
+    padding: 40px 0;
+    letter-spacing: 2px;
+}
+h2::after{
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #5389ee;
+    left: 0;
+    bottom: 15px;
+}
+label {
+    position: relative;
+    font-size: 25px;
+    color: #000000;
+    margin-left: 5px;
+    font-family: 'poppins', sans-serif;
+}
+input[type="text"],
+input[type="Password"]{
+    width: 100%;
+    height: 50px;
+    padding: 0 50px;
+    font-size: 18px;
+    color: #5389ee;
+    border-radius: 50px;
+    background: #eff0f1;
+    border: 0.5px solid #5389ee; 
+}
+input[type="text"]:focus,
+input[type="Password"]:focus{
+    
+    color: #5389ee;
+    box-shadow: inset 1px 1px 7px #5389ee,
+    -1px -1px 7px #5389ee;
+}
+
+button{
+    position: relative;
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    background-color: #5389ee;
+    border-radius: 50px;
+    cursor: pointer;
+}
+button:active{
+    transform: scale(0.98);
+}
+.fa-send{
+    font-size: 20px;
+    color: #5389ee;
+}
+#btn{
+    background: transparent;
+    border: none;
+    margin-left: 5px;
+    color:#000000;
+    font-size: 22px;
+    font-weight: 400;
+}
+.newuser{
+    width: 100%;
+    padding: 3px 0;
+    font-size: 20px;
+    margin-top: 20px;
+    font-weight: 400;
+    color: #000000;
+    text-decoration: none;
+}
+.newuser a {
+    color: #000000;
+}
+
+.newuser a:hover{
+    color: #5389ee;
+}
+
+

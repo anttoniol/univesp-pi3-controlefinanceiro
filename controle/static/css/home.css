@@ -1,0 +1,269 @@
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    /* color: #333; */
+}
+
+body h1, h2, h3 {
+    color: #2c3e50;
+}
+
+/* Navbar */
+div.nav_new  {
+    display: flex;
+    justify-content: space-between;
+    background-color: #3498db;
+}
+div.nav_item {
+    justify-content: space-between; /* 2 */
+    background-color: #3498db;
+    color: white;
+    font-size: 14px;
+    margin: 0px;
+    padding: 0px;
+    border-radius: none;
+    box-shadow: none;
+}
+div.nav_item h2{
+    color: whitesmoke;
+}
+
+.nav_new ul li {
+    padding-left: 1rem; /* 7! */
+    color: whitesmoke;
+    text-align: left;
+    background-color: none;
+}
+.nav_new h3 {
+    padding-left: 1rem; /* 7! */
+    color: whitesmoke;
+    text-align: right;
+}
+
+
+
+/* Container principal */
+div {
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para a seção de saldo */
+h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+/* Lista de contas */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    background-color: #ecf0f1;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+ul li:nth-child(even) {
+    background-color: #bdc3c7;
+}
+
+/* Tabela de transações */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #2980b9;
+    color: white;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table tr:hover {
+    background-color: #ddd;
+}
+
+/* Botão de ação */
+button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 0px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #c0392b;
+}
+
+/* Links de navegação */
+a {
+    display: inline-block;
+    margin-right: 15px;
+    background-color: #2980b9;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+a:hover {
+    background-color: #21618c;
+}
+
+.rec_dsp {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+/* Estilo dos cards */
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 48%;  /* Define o tamanho para permitir dois cards lado a lado */
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+/* Adiciona efeito de hover para os cards */
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Estilização dos títulos dentro dos cards */
+.card h3 {
+    margin: 0;
+    font-size: 20px;
+    /*color: #2c3e50;*/
+}
+
+/* Cor diferente para receita e despesa */
+.rec_dsp .card:first-child {
+    border-left: 4px solid #27ae60; /* Verde para receita */
+}
+
+.rec_dsp .card:last-child {
+    border-left: 4px solid #e74c3c; /* Vermelho para despesa */
+}
+
+/* Seção das contas */
+.contas-section {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f4f4f9;
+    border-radius: 8px;
+}
+
+/* Título das contas */
+.contas-section h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+    text-align: left;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+/* Lista de contas */
+.contas-list {
+    list-style: none;  /* Remove bullets */
+    padding: 0;
+    margin: 0;
+}
+
+/* Itens da lista de contas */
+.conta-item {
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+/* Efeito hover para a conta */
+.conta-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Informações da conta */
+.conta-info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+/* Nome da conta */
+.conta-nome {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* Tipo da conta */
+.conta-tipo {
+    font-size: 16px;
+    color: #7f8c8d;
+    margin-left: 20px;
+}
+
+/* Saldo da conta */
+.conta-saldo {
+    font-size: 16px;
+    font-weight: bold;
+    color: #27ae60;
+}
+
+.conta-saldo-negativo {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ff0000;
+}
+
+form p{
+display: flex;
+justify-content: space-between;
+}
+
+.positivo {
+    color: green;
+}
+
+.negativo {
+    color: red;
+}
+

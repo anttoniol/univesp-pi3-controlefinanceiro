@@ -1,0 +1,93 @@
+{% load static %}
+<head><link rel="stylesheet" href="{% static 'css/home.css' %}"></head>
+
+
+<div class="nav_new">
+    <div class="nav_item">
+        <h2>Bem-vindo, {{ user.username }} </h2>
+    </div>
+    <div class="nav_item">
+        <h2><a href="{% url 'logout' %}">Logout</a></h2>
+    </div>
+</div>
+<div>
+    <h2>Saldo Atual:</h2>
+    {% if saldo_atual < 0 %}
+        <h3 class="negativo"> R$ {{ saldo_atual|floatformat:2 }}</h3>
+    {% else %}
+        <h3 class="positivo"> R$ {{ saldo_atual|floatformat:2 }}</h3>
+    {% endif %}
+    <div class="rec_dsp">
+        <div class="card">
+            <h3 class="positivo" >Receitas do Mês: R$ {{ receitas_mes|floatformat:2 }}</h3>
+        </div>
+        <div class="card">
+            <h3 class="negativo" >Despesas do Mês: R$ {{ despesas_mes|floatformat:2 }}</h3>
+        </div>
+    </div>
+</div>
+
+<div class="contas-section">
+    <h3>Contas</h3>
+    <ul class="contas-list">
+        {% for conta in contas %}
+            <li class="conta-item">
+                <div class="conta-info">
+                    <span class="conta-nome">{{ conta.nome }}</span>
+                    <span class="conta-tipo">{{ conta.get_tipo_display }}</span>
+                    {% if conta.saldo < 0 %}
+                        <span class="conta-saldo-negativo"> Saldo: R$ {{ conta.saldo|floatformat:2 }}</span>
+                    {% else %}
+                        <span class="conta-saldo"> Saldo: R$ {{ conta.saldo|floatformat:2 }}</span>
+                    {% endif %}
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div><h3>Transações:</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Data</th>
+            <th>Tipo</th>
+            <th>Categoria</th>
+            <th>Valor</th>
+            <th>Conta</th>
+            <th>Ações</th> <!-- Nova coluna para ações -->
+        </tr>
+    </thead>
+    <tbody>
+        {% for transacao in transacoes %}
+            <tr>
+                <td>{{ transacao.data|date:"d/M/y" }}</td>
+                <td>{{ transacao.tipo }}</td>
+                <td>{{ transacao.categoria.nome }}</td>
+                <td>R$ {{ transacao.valor|floatformat:2 }}</td>
+                <td>{{ transacao.conta.nome }}</td>
+                <td>
+                    <!-- Botão para excluir transação -->
+                    <form action="{% url 'home' %}" method="post" style="display:inline;">
+                        {% csrf_token %}
+                        <input type="hidden" name="excluir_transacao_id" value="{{ transacao.id }}">
+                        <button type="submit" class="btn btn-danger">APAGAR</button>
+                    </form>
+                </td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="6">Nenhuma transação cadastrada.</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+
+<div>
+<a href="{% url 'cadastrar_conta' %}">Cadastrar Conta</a>
+<a href="{% url 'registrar_transacao' %}">Registrar Transação</a>
+<a href="{% url 'cadastrar_categoria' %}" class="btn btn-primary">Cadastrar Categoria</a>
+<a href="{% url 'logout' %}">Logout</a>
+
+</div>

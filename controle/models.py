@@ -16,8 +16,8 @@ class Conta(models.Model):
 
 class Categoria(models.Model):
     TIPOS = [
-        ('REC', 'RECEITA'),
-        ('DSP', 'DESPESA'),
+        ('REC', 'Receita'),
+        ('DSP', 'Despesa'),
     ]
     tipo = models.CharField(max_length=3, choices=TIPOS)  # Tipo da categoria, 'RECEITA' ou 'DESPESA'
     nome = models.CharField(max_length=50)  # Nome da categoria, ex: 'Alimentação'

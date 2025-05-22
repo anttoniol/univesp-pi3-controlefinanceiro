@@ -1,17 +1,92 @@
 {% load static %}
-<head><link rel="stylesheet" href="{% static 'css/home.css' %}"></head>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Transação</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <style>
+        body {
+            background-color: #f9fafc;
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex
+;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+        }
 
-<div class="nav_new">
-    <div class="nav_item">
-        <h2><a href="{% url 'home' %}">Voltar para Home</a></h2>
-    </div>
-</div>
+        .nav_new {
+            width: 100%;
+            background-color: #0a9396;
+            padding: 15px 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(59,130,246,0.3);
+            border-radius: 8px;
+        }
 
-<div class="contas-section">
-<h2>Registrar Transação</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Registrar</button>
-</form>
-</div>
+        .nav_new a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .nav_new a:hover {
+            color: black;
+        }
+
+        .container {
+            background: white;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            max-width: 480px;
+            width: 100%;
+        }
+
+        .container h2 {
+            margin-bottom: 25px;
+            color: #0a9396;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .form-register button {
+            background-color: #0a9396;
+            color: white;
+            padding: 14px 0;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            width: 100%;
+            box-shadow: 0 6px 12px rgba(59,130,246,0.4);
+        }
+
+        .form-register button:hover {
+            background-color: #0a9396;
+            box-shadow: 0 8px 20px rgba(37,99,235,0.6);
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav_new">
+        <div class="nav_item">
+            <h2><a href="{% url 'home' %}">← Voltar para Home</a></h2>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h2>Registrar Transação</h2>
+        <form method="post" class="form-register">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn-primary">Registrar</button>
+        </form>
+    </main>
+</body>
+</html>

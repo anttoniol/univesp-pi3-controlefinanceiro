@@ -1,6 +1,6 @@
 {% load static %}
 <head>
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-aw'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{% static 'css/login.css' %}">
     <title>Login</title>
 </head>
@@ -9,13 +9,12 @@
         <h2>Login</h2>
         <form method="post">
             {% csrf_token %}
-            {{ form.as_p }}<br>
-            <button>
-                <i class="fa fa-send"></i>
-                <input type="submit" value="Entrar" id="btn">
+            {{ form.as_p }}
+            <button type="submit" id="btn">
+                <i class="fa fa-send"></i> Entrar
             </button>
             <div class="newuser">
-                Não tem uma conta? <a href="{% url 'cadastrar_usuario' %}" class="">Cadastre-se aqui</a>
+                Não tem uma conta? <a href="{% url 'cadastrar_usuario' %}">Cadastre-se aqui</a>
             </div>
         </form>  
     </div> 

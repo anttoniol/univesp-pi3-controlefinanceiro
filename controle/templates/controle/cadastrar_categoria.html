@@ -1,18 +1,141 @@
 {% load static %}
-<head><link rel="stylesheet" href="{% static 'css/home.css' %}"></head>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cadastrar Nova Categoria</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <style>
+        /* Reset básico */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-<div class="nav_new">
-    <div class="nav_item">
-        <h2><a href="{% url 'home' %}">Voltar para Home</a></h2>
-    </div>
-</div>
+        body {
+            background-color: #f9fafc;
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
 
-<div>
-<h2>Cadastrar Nova Categoria</h2>
+        /* Navbar */
+        .nav_new {
+            width: 100%;
+            background-color: #0a9396; /* azul suave */
+            padding: 15px 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(59,130,246,0.3);
+            border-radius: 8px;
+        }
 
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}  <!-- Renderiza os campos do formulário -->
-    <button type="submit" class="btn btn-primary">Cadastrar</button>
-</form>
-</div>
+        .nav_new a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        .nav_new a:hover {
+            color: #000000;
+        }
+
+        /* Container central */
+        .container {
+            background: white;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            max-width: 480px;
+            width: 100%;
+        }
+
+        .container h2 {
+            margin-bottom: 25px;
+            color: #0a9396;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        /* Form */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        form input[type="text"],
+        form select {
+            padding: 14px 18px;
+            font-size: 17px;
+            border-radius: 50px;
+            border: 1.5px solid #0a9396;
+            background-color: #eff6ff;
+            color: #1e293b;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+            font-weight: 500;
+        }
+
+        form input[type="text"]:focus,
+        form select:focus {
+            outline: none;
+            border-color: #0a9396;
+            box-shadow: 0 0 8px #0a9396;
+            background-color: white;
+        }
+
+        button[type="submit"] {
+            background-color: #0a9396;
+            color: white;
+            padding: 14px 0;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 6px 12px rgba(59,130,246,0.4);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0a9396;
+            box-shadow: 0 8px 20px rgba(37,99,235,0.6);
+        }
+
+        form p {
+            margin-bottom: 0;
+        }
+
+        label {
+            font-weight: 600;
+            margin-bottom: 6px;
+            display: block;
+            color: #334155;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav_new">
+        <a href="{% url 'home' %}">← Voltar para Home</a>
+    </nav>
+
+    <main class="container">
+        <h2>Cadastrar Nova Categoria</h2>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Cadastrar</button>
+        </form>
+    </main>
+</body>
+</html>

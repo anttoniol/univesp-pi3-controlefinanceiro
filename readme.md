@@ -10,4 +10,5 @@
 	2. `python manage.py migrate`
 5. (Opcional) Criar superusuário: `python manage.py createsuperuser`
 6. Subir a aplicação: `python manage.py runserver`
+7. (Opcional) Para acessar a API para obtenção de dados, acessar http://127.0.0.1:8000/stats/ , usando os dados de superusuário criado no passo 5.
 

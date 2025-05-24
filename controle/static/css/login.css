@@ -1,27 +1,37 @@
-*{
+/* Reset básico para margem, padding e box-sizing */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     outline: none;
-    font-family: 'poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
+/* Centraliza o body na tela */
 body {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background: #e2e4e9;
+    /* Adiciona um contraste maior para melhor acessibilidade */
+    color: #222;
 }
+
+/* Container do formulário */
 .container {
     background: #eff0f1;
     border: 0.5px solid #313b4e;
     padding: 50px 30px;
-    border-radius: 20px; /* borda arredondada*/
+    border-radius: 20px; /* borda arredondada */
     box-shadow: 1px 1px 20px #3b4456,
                 -1px -1px 20px #4f5c74;
+    max-width: 400px; /* Limita largura para responsividade */
+    width: 90%;
 }
-h2{
+
+/* Título principal */
+h2 {
     position: relative;
     font-size: 40px;
     font-weight: 800;
@@ -29,7 +39,9 @@ h2{
     padding: 40px 0;
     letter-spacing: 2px;
 }
-h2::after{
+
+/* Linha decorativa após o título */
+h2::after {
     position: absolute;
     content: '';
     width: 100%;
@@ -38,57 +50,84 @@ h2::after{
     left: 0;
     bottom: 15px;
 }
+
+/* Labels dos inputs */
 label {
-    position: relative;
-    font-size: 25px;
+    display: block; /* garante que o label ocupe linha toda */
+    font-size: 20px; /* diminui um pouco para melhor hierarquia */
     color: #000000;
-    margin-left: 5px;
-    font-family: 'poppins', sans-serif;
+    margin-bottom: 8px; /* espaço abaixo do label */
+    font-family: 'Poppins', sans-serif;
 }
+
+/* Inputs texto e senha */
 input[type="text"],
-input[type="Password"]{
+input[type="password"] {
     width: 100%;
     height: 50px;
-    padding: 0 50px;
+    padding: 0 20px; /* reduz padding para 20px para melhor alinhamento */
     font-size: 18px;
     color: #5389ee;
     border-radius: 50px;
     background: #eff0f1;
-    border: 0.5px solid #5389ee; 
-}
-input[type="text"]:focus,
-input[type="Password"]:focus{
-    
-    color: #5389ee;
-    box-shadow: inset 1px 1px 7px #5389ee,
-    -1px -1px 7px #5389ee;
+    border: 0.5px solid #5389ee;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-button{
+/* Efeito de foco nos inputs - melhor para acessibilidade */
+input[type="text"]:focus-visible,
+input[type="password"]:focus-visible {
+    outline: none;
+    border-color: #2978ff;
+    box-shadow: 0 0 8px 2px rgba(41, 120, 255, 0.5);
+    color: #2978ff;
+}
+
+/* Botão principal */
+button {
     position: relative;
     width: 100%;
-    padding: 10px 0;
+    padding: 12px 0;
     border: none;
     background-color: #5389ee;
     border-radius: 50px;
     cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    transition: background-color 0.3s ease, transform 0.1s ease;
 }
-button:active{
+
+/* Efeito ao clicar no botão */
+button:active {
     transform: scale(0.98);
 }
-.fa-send{
+
+/* Ícone do botão (ex: send) */
+.fa-send {
     font-size: 20px;
-    color: #5389ee;
+    color: white; /* para melhor contraste no botão */
 }
-#btn{
+
+/* Botão secundário transparente */
+#btn {
     background: transparent;
     border: none;
     margin-left: 5px;
-    color:#000000;
+    color: #000000;
     font-size: 22px;
     font-weight: 400;
+    cursor: pointer;
+    transition: color 0.3s ease;
 }
-.newuser{
+
+/* Hover para botão secundário */
+#btn:hover {
+    color: #5389ee;
+}
+
+/* Texto para novo usuário */
+.newuser {
     width: 100%;
     padding: 3px 0;
     font-size: 20px;
@@ -96,13 +135,51 @@ button:active{
     font-weight: 400;
     color: #000000;
     text-decoration: none;
+    text-align: center;
 }
+
+/* Links dentro de .newuser */
 .newuser a {
     color: #000000;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
 }
 
-.newuser a:hover{
+/* Hover no link */
+.newuser a:hover {
     color: #5389ee;
+    text-decoration: underline;
 }
 
+/* Tornar a página responsiva em telas menores */
+@media (max-width: 480px) {
+    .container {
+        padding: 30px 20px;
+        width: 95%;
+    }
 
+    h2 {
+        font-size: 32px;
+        padding: 30px 0;
+    }
+
+    label {
+        font-size: 18px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        height: 45px;
+        font-size: 16px;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 10px 0;
+    }
+
+    .newuser {
+        font-size: 16px;
+    }
+}

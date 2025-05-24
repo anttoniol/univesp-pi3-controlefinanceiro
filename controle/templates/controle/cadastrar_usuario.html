@@ -1,22 +1,30 @@
 {% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-aw'>
-    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Cadastrar Usuário</title>
+    
+    <!-- Font Awesome corrigido -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    
+    <!-- Seu CSS específico -->
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
 </head>
 <body>
-    <div class="container"> 
+    <div class="container">
         <h2>Cadastrar Usuário</h2>
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit">
-                <i class="fa fa-send"></i>
-                <input type="submit" value="Cadastrar" id="btn">
-            </button><br><br>
+            <button type="submit" id="btn">
+                <i class="fa fa-send"></i> Cadastrar
+            </button>
         </form>
         <div class="newuser">
-            <a href="{% url 'login' %}" class="">Voltar</a>
+            <a href="{% url 'login' %}">Voltar</a>
         </div>
     </div>
 </body>
+</html>
